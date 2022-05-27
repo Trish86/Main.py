@@ -1,18 +1,31 @@
-def find_anagram(data1, data2):
-    if (len(data1) != len(data2)):
-        return False
-    else:
-        if(sorted(data1) == sorted(data2)):
-            return True
+# Read text from a file, and count the occurence of words in that text
+# Example:
+# count_words("The cake is done. It is a big cake!") 
+# --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
+
+def read_file_content(filename):
+    # [assignment] Add your code here 
+    with open("./story.txt", "r") as openfile:
+        read_file_content = openfile.read()
+    
+    return "the professor asked, How heavy is this glass of water I am holding?"
+
+
+def count_words():
+    text = read_file_content("./story.txt")
+
+    split_text = text.split()
+    # [assignment] Add your code here
+    count ={}
+    for i in split_text:
+        if i in count:
+            count[i] +=1
         else:
-            return False
-print(find_anagram("below", "elbow"))
+            count[i] =1
+    return count
+
+print(count_words())
 
 
 
- 
-
-
-
-
-
+  
